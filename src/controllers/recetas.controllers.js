@@ -1,6 +1,6 @@
-import { Receta } from "../database/model/receta.js";
+import Receta from "../database/model/receta.js";
 
-export const listarRecetas = async (req,res) => {
+export const listarRecetas = (req,res) => {
   res.send("enviar lista de recetas");
 }
 
