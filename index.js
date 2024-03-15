@@ -4,6 +4,7 @@ import morgan from "morgan";
 import "dotenv/config";
 import { fileURLToPath } from "url";
 import path from "path";
+import enrutadorRecetas from "./src/routes/recetas.routes.js";
 
 const app = express();
 
@@ -21,3 +22,5 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname,"/public")));
+
+app.use("api", enrutadorRecetas);
