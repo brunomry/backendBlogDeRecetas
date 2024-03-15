@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { crearReceta, listarRecetas, obtenerReceta } from "../controllers/recetas.controllers.js";
+import { crearReceta, editarReceta, listarRecetas, obtenerReceta } from "../controllers/recetas.controllers.js";
 
 const enrutador = new Router();
 
 enrutador.route("/recetas").get(listarRecetas).post(crearReceta);
-enrutador.route("/receta/:id").get(obtenerReceta);
+enrutador.route("/receta/:id").get(obtenerReceta).put(editarReceta);
 
 export default enrutador;
