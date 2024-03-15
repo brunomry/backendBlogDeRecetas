@@ -59,3 +59,26 @@ export const editarReceta = async(req,res) => {
     })
   }
 }
+
+export const borrarReceta = async(req,res) => {
+  try {
+    const recetaEncontrada = await Receta.findById(req.params.id);
+
+    if(!recetaEncontrada){
+      return res.status(404).json({
+        mensaje:"No se encontró la receta, el id es incorrecto"
+      })
+    }
+
+    await Receta.findByIdAndDelete(req.params.id,req.body);
+    
+    res.status(200).json({
+      mensaje:"La receta fue eliminada con éxito"
+    })
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      mensaje:"Ocurrió un error al intentar borrar la receta"
+    })
+  }
+}
