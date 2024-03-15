@@ -5,6 +5,7 @@ import "dotenv/config";
 import { fileURLToPath } from "url";
 import path from "path";
 import enrutadorRecetas from "./src/routes/recetas.routes.js";
+import "./src/database/database.js";
 
 const app = express();
 
